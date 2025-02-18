@@ -5,6 +5,8 @@ const h1 = document.querySelector('h1');
 h1.style.color = 'white';
 
 
+//!=============================== PART 1: =================================
+
 // Our adventure time character Fionna and her companions
 const adventurer = {
     name: "Fionna",
@@ -63,6 +65,43 @@ for (let index = 0; index < adventurer.companion.inventory.length; index++) {
     console.log(`${compInventory} is in Cake's inventory`);
     
 }
+
+//!========================== PART 2: =============================
+console.log("==================================================");
+
+class Character {
+    constructor(name){
+        this.name = name;
+        this.health = 100;
+        this.inventory = [];
+    };
+
+    roll(mod = 0){
+        const result1 = Math.floor(Math.random() * 20) + 1 + mod;
+        console.log(`${this.name} rolled a ${result1}`)
+    };
+};
+
+const fionna = new Character("Fionna");
+fionna.roll();
+fionna.inventory = ["sword", "potion", "artifact"];
+
+//companion characters 
+fionna.companion = new Character("Cake");
+fionna.companion.type = "cat";
+
+fionna.companion.companion = new Character("Lord Monochromicorn")
+fionna.companion.companion.type = "unicorn"
+
+//companion inventory
+fionna.companion.inventory = ["sandich", "magic", "phone"]
+fionna.companion.companion.inventory = ["violin", "magic horn"]
+
+// console log
+console.log(fionna);
+console.log(fionna.companion);
+console.log(fionna.companion.companion);
+
 
 
 
